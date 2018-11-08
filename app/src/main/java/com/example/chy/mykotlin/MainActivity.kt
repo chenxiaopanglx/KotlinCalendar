@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         dataPicker.setOnDateChangedListener { view, year, monthOfYear, dayOfMonth ->
             dataPicker.visibility = View.GONE
             detail.visibility = View.VISIBLE
-            selectBtn.visibility = View.VISIBLE
+            selectBtn.visibility = View.GONE
 
             RetrofitUtil.retrofitService
                     .calendarDay("$year-$monthOfYear-$dayOfMonth","933dc930886c8c0717607f9f8bae0b48")

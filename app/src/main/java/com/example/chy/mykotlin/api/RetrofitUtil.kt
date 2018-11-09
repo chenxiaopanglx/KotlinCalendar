@@ -23,7 +23,10 @@ class RetrofitUtil {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()
         }
-        val retrofitService: RetrofitService = RetrofitUtil.create(Constants.REQUEST_BASE_URL).create(RetrofitService::class.java)
+        val retrofitService: RetrofitService = RetrofitUtil.getService(Constants.REQUEST_BASE_URL, RetrofitService::class.java)
 
+        fun <T> getService(url: String, service: Class<T>):T {
+            return create(url).create(service)
+        }
     }
 }

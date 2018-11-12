@@ -6,9 +6,9 @@ package com.example.chy.mykotlin.bean
  * Description:
  */
 
-data class CalentarDayBean(val reason: String, val result: CalentarResultBean, val error_code: Int)
+data class CalendarDayBean(val reason: String, val result: CalendarResultBean, val error_code: Int)
 
-data class CalentarResultBean(val data: CalentarDataBean)
+data class CalendarResultBean(val data: CalentarDataBean)
 
 data class CalentarDataBean(
         val data: String,

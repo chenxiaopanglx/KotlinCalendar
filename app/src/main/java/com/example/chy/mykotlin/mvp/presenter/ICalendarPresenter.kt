@@ -7,18 +7,19 @@ import io.reactivex.schedulers.Schedulers
 
 /**
  * Author: chy
- * Date:  2018/11/9
+ * Date:  2018/11/12
  * Description:
  */
-class CalendarDatePresenter(val view :ICalendarContract.View) : ICalendarContract.Model {
-    override fun getDayCalendarData(date: String) {
+
+class ICalendarPresenter(val view:ICalendarContract.View) : ICalendarContract.Model {
+    override fun getDayCalendarData(data: String) {
         RetrofitUtil.retrofitService
-                .calendarDay(date, "933dc930886c8c0717607f9f8bae0b48")
+                .calendarDay(data, "933dc930886c8c0717607f9f8bae0b48")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { calendarDayBean ->
-                    view?.showDayCalendarData(calendarDayBean)
-                 }
+                .subscribe { calendarBean ->
+                    view.showDayCalendarData(calendarBean)
+                }
     }
 
     override fun onDestroy() {
@@ -28,4 +29,5 @@ class CalendarDatePresenter(val view :ICalendarContract.View) : ICalendarContrac
     override fun attachView(view: ICalendarContract.View) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 }
